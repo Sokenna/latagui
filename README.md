@@ -27,3 +27,11 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 淘宝npm镜像地址
+```
+http://npm.taobao.org/
+```
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
