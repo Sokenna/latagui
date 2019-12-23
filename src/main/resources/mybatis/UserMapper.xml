@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.latagui.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.latagui.bean.User">
+    <id column="user_id" jdbcType="INTEGER" property="user_id" />
+    <result column="user_name" jdbcType="VARCHAR" property="user_name" />
+    <result column="real_name" jdbcType="VARCHAR" property="real_name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="valid_flag" jdbcType="CHAR" property="valid_flag" />
+    <result column="lock_flag" jdbcType="CHAR" property="lock_flag" />
+    <result column="error_num" jdbcType="INTEGER" property="error_num" />
+    <result column="token" jdbcType="CHAR" property="token" />
+
+  </resultMap>
+
+
+  <sql id="Base_Column_List">
+    user_id, user_name,real_name, password, gender, birthday, age, valid_flag,lock_flag,error_num,token
+  </sql>
+  <select id="selectByExample"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from t_sys_user
+
+  </select>
+  <select id="getUserByUserName" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"></include>
+    from t_sys_user
+    where user_name = #{userName}
+  </select>
+</mapper>

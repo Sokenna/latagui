@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--JDBC驱动jar包的位置-->
-    <classPathEntry location="D:\mvn\repository\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar" />
+    <classPathEntry location="E:\mvn\repository\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar" />
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
 
@@ -15,7 +15,7 @@
         </commentGenerator>
         <!--数据库连接-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/snopy_dev"
+                        connectionURL="jdbc:mysql://localhost:3306/snopy_dev?serverTimezone=UTC"
                         userId="root"
                         password="123456">
         </jdbcConnection>
@@ -24,25 +24,23 @@
             <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="test.model" targetProject="\MBGTestProject\src">
+        <javaModelGenerator targetPackage="com.latagui.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="test.xml"  targetProject="\MBGTestProject\src">
+        <sqlMapGenerator targetPackage="com.latagui.dao"  targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="test.dao"  targetProject="\MBGTestProject\src">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="mybatis"  targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >
+        <table schema="DB2ADMIN" tableName="t_sys_user" domainObjectName="User" >
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="ID" sqlStatement="DB2" identity="true" />
-            <columnOverride column="DATE_FIELD" property="startDate" />
-            <ignoreColumn column="FRED" />
-            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />
+
         </table>
 
     </context>
