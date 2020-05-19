@@ -7,7 +7,7 @@ spring:
     url: jdbc:mysql://localhost:3306/snopy_dev?serverTimezone=UTC
     driver-class-name: com.mysql.jdbc.Driver
   redis:
-    host: 139.224.232.167
+    host: localhost
     port: 6379
     database: 0
     timeout: 1000
