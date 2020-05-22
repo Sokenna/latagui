@@ -67,7 +67,7 @@ public class OAuthRealm extends AuthorizingRealm {
             throw  new ExcessiveAttemptsException("错误次数过多！");//错误次数过多
         }else if(user.getLock_flag().equals("1")){
             throw  new LockedAccountException("账号已锁定！");//锁定的账号
-        }else if(password.equals(user.getPassword())){
+        }else if(!password.equals(user.getPassword())){
             throw new IncorrectCredentialsException(); //如果密码错误
         }
         //2.判断密码

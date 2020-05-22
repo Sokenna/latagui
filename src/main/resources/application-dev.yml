@@ -1,20 +1,29 @@
 server:
   port: 8081
-
 spring:
   datasource:
     username: root
     password: 123456
     url: jdbc:mysql://localhost:3306/snopy_dev?serverTimezone=UTC
     driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    timeout: 1000
+    pool:
+      max-idle: 200
+      min-idle: 0
+      max-active: 200
+      max-wait: 1000
 
 mybatis:
   mapper-locations: classpath:mybatis/*Mapper.xml
   type-aliases-package: com.latagui.dao
 
-#showSql
-logging:
-  level:
-    com:
-      example:
-        mapper : debug
+##showSql
+#logging:
+#  level:
+#    com:
+#      example:
+#        mapper : debug
