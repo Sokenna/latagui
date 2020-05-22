@@ -35,8 +35,14 @@ public class AuthorController {
             e.printStackTrace();
             return "错误的凭证！";
         }
-
-
-        return "Greetings from Spring Boot!";
+        return "登录成功！";
     }
+    @RequestMapping("/logout")
+    public String  logout(){
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return "退出成功！";
+    }
+
+
 }

@@ -32,4 +32,8 @@
     from t_sys_user
     where user_name = #{userName}
   </select>
+  <insert id="saveUser" parameterMap="BaseResultMap">
+    insert into t_sys_user()
+
+  </insert>
 </mapper>

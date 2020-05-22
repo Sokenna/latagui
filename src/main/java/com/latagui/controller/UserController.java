@@ -15,6 +15,12 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
+
+
+    @RequestMapping("saveUser")
+    public JSONObject saveUser(User user){
+        return userService.saveUser(user).toJSON();
+    }
     @RequestMapping("getUserlist")
     public  List<User> getUserList(){
      List<User> list =  userService.getUserList();
